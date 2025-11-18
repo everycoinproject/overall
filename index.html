@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Refund Project</title>
-    <link rel="icon" type="image/x-icon" href="photo.png">
+    <title>The Artificial Meme</title>
+    <link rel="icon" type="image/x-icon" href="download.png">
     <style>
         * {
             margin: 0;
@@ -12,60 +12,228 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #fefdfb 0%, #faf8f5 100%);
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            position: fixed;
+            top: 30px;
+            right: 30px;
             display: flex;
-            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #1a1a1a;
+            color: #faf8f5;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            color: #3ac682;
-            padding: 20px;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
 
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
-            max-width: 1100px;
-            width: 100%;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-top: 30px;
             letter-spacing: -0.02em;
-            color: #3ac682;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .tagline {
-            font-size: 1.4rem;
-            color: #ff8c42;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #4a4a4a;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            color: #2a2a2a;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .promo-section {
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .promo-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
             font-weight: 600;
-            margin-bottom: 3rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+            letter-spacing: -0.01em;
+        }
+
+        .promo-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #2a2a2a;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platform-description {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            color: #4a4a4a;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+            margin-top: 35px;
+            padding: 20px 0;
+        }
+
+        .social-logo {
+            width: 55px;
+            height: 55px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .funding-info {
+            font-size: 0.95rem;
+            margin-top: 50px;
+            padding: 25px 30px;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 20px;
+            line-height: 1.7;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .vision-section {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            padding: 30px 25px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 107, 53, 0.02) 100%);
+            border-radius: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .vision-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .vision-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+        }
+
+        /* Dev Fees Section */
+        .dev-fees-section {
+            margin-top: 70px;
+            padding: 50px 20px;
+            background: #ffffff;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: -40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dev-fees-container {
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .dev-fees-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
         }
 
         .circle-container {
             position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 0 auto 3rem;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
         }
 
         .circle {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3ac682 0%, #2eb872 100%);
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 0 40px rgba(58, 198, 130, 0.3),
-                inset 0 0 60px rgba(255, 255, 255, 0.2);
-            border: 8px solid #3ac682;
+                0 0 40px rgba(255, 107, 53, 0.2),
+                inset 0 0 60px rgba(0, 0, 0, 0.03);
+            border: 8px solid #ff6b35;
             position: relative;
             overflow: hidden;
         }
@@ -77,7 +245,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(58, 198, 130, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
             animation: pulse 3s ease-in-out infinite;
         }
 
@@ -88,499 +256,340 @@
             }
             50% {
                 transform: scale(1.1);
-                opacity: 0.7;
+                opacity: 0.8;
             }
         }
 
         .fee-amount {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #1a1a1a;
             z-index: 1;
             position: relative;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .fee-amount.updating {
             transform: scale(1.05);
-            color: #ffffff;
+            color: #ff6b35;
         }
 
         .update-indicator {
-            font-size: 0.9rem;
-            color: #3ac682;
-            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #ff6b35;
+            margin-top: 0.8rem;
             font-weight: 500;
         }
 
-        .x-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #3ac682;
-            border: 2px solid #3ac682;
-            border-radius: 12px;
-            padding: 12px 24px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(58, 198, 130, 0.3);
-            z-index: 1000;
-        }
-
-        .x-button:hover {
-            background: #2eb872;
-            border-color: #2eb872;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(58, 198, 130, 0.4);
-        }
-
-        .x-button svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
         .info-section {
-            background: #ffffff;
+            background: rgba(0, 0, 0, 0.02);
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 1.5rem;
             margin-top: 2rem;
-            border: 2px solid #3ac682;
-            box-shadow: 0 8px 32px rgba(58, 198, 130, 0.15);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
         }
 
         .info-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #3ac682;
-            font-weight: 700;
-        }
-
-        .insurance-explanation {
-            background: linear-gradient(135deg, #e8f9f1 0%, #d4f4e6 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border: 2px solid #3ac682;
-        }
-
-        .insurance-explanation h3 {
-            font-size: 1.5rem;
-            color: #3ac682;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .insurance-explanation p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #2a8a5e;
-            margin-bottom: 1rem;
-        }
-
-        .highlight {
-            font-weight: 700;
-            color: #3ac682;
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
         .fee-breakdown {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .fee-card {
-            background: linear-gradient(135deg, #e8f9f1 0%, #d4f4e6 100%);
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 1.1rem;
             border-radius: 15px;
-            border: 2px solid #3ac682;
+            border: 2px solid rgba(255, 107, 53, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .fee-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(58, 198, 130, 0.25);
-            border-color: #2eb872;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.15);
+            border-color: rgba(255, 107, 53, 0.3);
         }
 
         .fee-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #3ac682;
-            font-weight: 700;
-        }
-
-        .fee-card p {
             font-size: 1rem;
-            line-height: 1.6;
-            color: #2a8a5e;
-        }
-
-        .percentage {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3ac682;
-            margin-bottom: 0.5rem;
-        }
-
-        .insurance-table-section {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-top: 2rem;
-            border: 2px solid #3ac682;
-            box-shadow: 0 8px 32px rgba(58, 198, 130, 0.15);
-        }
-
-        .insurance-table-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #3ac682;
-            font-weight: 700;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-top: 1.5rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        thead {
-            background: linear-gradient(135deg, #3ac682 0%, #2eb872 100%);
-            color: #ffffff;
-        }
-
-        th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #d4f4e6;
-            color: #2a8a5e;
-            font-size: 0.95rem;
-        }
-
-        tbody tr:hover {
-            background: #e8f9f1;
-        }
-
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            color: #ff6b35;
             font-weight: 600;
         }
 
-        .status-completed {
-            background: #3ac682;
-            color: #ffffff;
+        .fee-card p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #4a4a4a;
         }
 
-        .status-pending {
-            background: #d4f4e6;
-            color: #3ac682;
+        .percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #ff6b35;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            .nav-buttons {
+                top: 20px;
+                right: 20px;
+                gap: 10px;
             }
 
-            .tagline {
-                font-size: 1.1rem;
-            }
-
-            .circle-container {
-                width: 220px;
-                height: 220px;
-            }
-
-            .fee-amount {
-                font-size: 2.5rem;
-            }
-
-            .info-section, .insurance-table-section {
-                padding: 1.5rem;
-            }
-
-            .x-button {
-                top: 15px;
-                right: 15px;
-                padding: 10px 18px;
-                font-size: 0.9rem;
-            }
-
-            .x-button svg {
-                width: 18px;
-                height: 18px;
-            }
-
-            table {
+            .nav-btn {
+                padding: 10px 16px;
                 font-size: 0.85rem;
             }
 
-            th, td {
-                padding: 0.7rem 0.5rem;
+            h1 {
+                font-size: 2.2rem;
+                margin-top: 60px;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .promo-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .promo-section p {
+                font-size: 0.95rem;
+            }
+
+            .social-logos {
+                gap: 35px;
+            }
+
+            .social-logo {
+                width: 55px;
+                height: 55px;
+            }
+
+            .funding-info {
+                font-size: 0.95rem;
+                padding: 20px;
+            }
+
+            .dev-fees-title {
+                font-size: 1.6rem;
+            }
+
+            .circle-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .fee-amount {
+                font-size: 2.2rem;
+            }
+
+            .info-section {
+                padding: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/RefundYourLosses" target="_blank" rel="noopener noreferrer" class="x-button">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-        </svg>
-        Follow Us
-    </a>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="document.getElementById('dev-fees').scrollIntoView({behavior: 'smooth'})">Check Dev Fees</button>
+        <a href="https://x.com/99coins_" target="_blank" rel="noopener noreferrer" class="nav-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </svg>
+            X
+        </a>
+    </div>
+
     <div class="container">
-        <h1>The Refund Project</h1>
+        <h1>The Artificial Meme</h1>
         
-        <div class="circle-container">
-            <div class="circle">
-                <div class="fee-amount" id="feeAmount">$0</div>
-            </div>
-        </div>
-        
-        <div class="update-indicator" id="updateIndicator">
-            Updates every 5 seconds
-        </div>
+        <p class="tagline">We paid for ads on every major platform to make "99" go viral</p>
 
-        <div class="info-section">
-            <div class="insurance-explanation">
-                <h3>How Our Insurance Protection Works</h3>
-                <p>
-                    When you lose, we buy supply using creator rewards and send it directly to your wallet.
-                </p>
-            </div>
-
-            <h2>Developer Fee Distribution</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #2a8a5e;">
-                The amount displayed above represents our current developer fee pool, which funds both our insurance program and strategic buyback initiatives. This value updates every 5 seconds in real-time.
-            </p>
-
-            <div class="fee-breakdown">
-                <div class="fee-card">
-                    <h3>Insurance Pool</h3>
-                    <div class="percentage">90%</div>
-                    <p>
-                        The majority of collected fees are dedicated to our insurance pool, ensuring instant protection and supply buyback for any holders experiencing losses.
-                    </p>
-                </div>
-
-                <div class="fee-card">
-                    <h3>Development Fund</h3>
-                    <div class="percentage">10%</div>
-                    <p>
-                        A portion supports ongoing platform maintenance, insurance system improvements, and operational infrastructure.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="insurance-table-section">
-            <h2>Recent Insurance Payouts & Supply Buys</h2>
-            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; color: #2a8a5e;">
-                Track all buys made using our insurance pool supply in real-time. Every transaction is transparent and instant.
-            </p>
+        <div class="intro-text">
+            <p style="margin-bottom: 20px;">The Artificial Meme is a cryptocurrency token with one bold experiment: can we manufacture a viral meme from scratch? We're taking a portion of transaction fees and spending them on advertising a meme called "99" across every major social media platform.</p>
             
-            <div class="table-container">
-                <table id="insuranceTable">
-                    <thead>
-                        <tr>
-                            <th>Date & Time</th>
-                            <th>Wallet Address</th>
-                            <th>Loss Amount</th>
-                            <th>Supply Sent</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <!-- Table rows will be dynamically generated -->
-                    </tbody>
-                </table>
+            <p>The number means absolutely nothing. That's the point. We're proving that with enough strategic marketing and community momentum, we can make anything go viral. Everyone who holds the token benefits as "99" spreads across the internet.</p>
+        </div>
+
+        <div class="promo-section">
+            <h2>Massive Marketing Campaign</h2>
+            <p>We're spending developer fees on advertising campaigns across TikTok, YouTube, Facebook, and Reddit—all promoting the "99" meme. This isn't just a token launch—it's a full-scale social experiment designed to get "99" in front of millions of eyes and turn it into the internet's next viral sensation.</p>
+
+            <p class="platform-description">Every platform has a different strategy: viral videos on TikTok, educational content on YouTube, targeted ads on Facebook, and community engagement on Reddit. The goal is simple—maximum exposure equals maximum virality. Can we create culture artificially? We're about to find out.</p>
+
+            <div class="social-logos">
+                <svg class="social-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#000000"/>
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="url(#tiktok-gradient)"/>
+                    <defs>
+                        <linearGradient id="tiktok-gradient" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#FF0050"/>
+                            <stop offset="100%" stop-color="#00F2EA"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <svg class="social-logo" viewBox="0 0 24 24" fill="none">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000"/>
+                    <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/>
+                </svg>
+
+                <svg class="social-logo" viewBox="0 0 24 24" fill="#1877F2">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+
+                <svg class="social-logo" viewBox="0 0 24 24" fill="#FF4500">
+                    <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                </svg>
             </div>
+        </div>
+
+        <div class="vision-section">
+            <h2>How It Works</h2>
+            <p>When you buy or sell The Artificial Meme, a small fee is collected. 90% of those fees go into buying back more tokens (which supports the price), and 10% funds our "99" meme marketing campaigns.</p>
+            
+            <p>This means the token itself pays for its own viral marketing push. The bigger we grow, the bigger our advertising budget becomes. It's a self-sustaining cycle designed to turn "99" into an internet phenomenon while benefiting every token holder.</p>
+        </div>
+
+        <div class="funding-info">
+            <p><span class="highlight">100% of "99" meme advertising is funded by developer fees.</span> No hidden costs, no asking the community for money. The token's transaction fees pay for everything—from TikTok ads to influencer partnerships to Reddit campaigns. You hold the token, we handle the meme warfare.</p>
         </div>
     </div>
 
+    <!-- Dev Fees Section -->
+    <section class="dev-fees-section" id="dev-fees">
+        <div class="dev-fees-container">
+            <h2 class="dev-fees-title">Developer Fee Pool</h2>
+            
+            <div class="circle-container">
+                <div class="circle">
+                    <div class="fee-amount" id="feeAmount">$0</div>
+                </div>
+            </div>
+            
+            <div class="update-indicator" id="updateIndicator">
+                Updates every 5 seconds
+            </div>
+
+            <div class="info-section">
+                <h2>How Developer Fees Work</h2>
+                <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; color: #4a4a4a;">
+                    The amount displayed above represents the current developer fee pool. This value automatically updates every 5 seconds to reflect real-time accumulation of fees from the platform.
+                </p>
+
+                <div class="fee-breakdown">
+                    <div class="fee-card">
+                        <h3>💰 Buyback Program</h3>
+                        <div class="percentage">90%</div>
+                        <p>
+                            The majority of collected fees are dedicated to a strategic buyback program, creating consistent buy pressure and supporting token value for all holders.
+                        </p>
+                    </div>
+
+                    <div class="fee-card">
+                        <h3>🛠️ Development Fund</h3>
+                        <div class="percentage">10%</div>
+                        <p>
+                            A portion is allocated to the development team for ongoing platform maintenance, feature development, and operational expenses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
-        const STORAGE_KEY = 'insurance_project_fee_amount';
-        const TABLE_STORAGE_KEY = 'insurance_project_insurance_table';
+        const STORAGE_KEY = 'artificialmeme_fee_amount';
         let currentFee = 0.00;
         const feeElement = document.getElementById('feeAmount');
         const updateIndicator = document.getElementById('updateIndicator');
-        const tableBody = document.getElementById('tableBody');
 
-        // Sample wallet addresses for demo
-        const sampleWallets = [
-            '7xKv...9mPq',
-            '5tWn...3kLp',
-            '9mBx...7hQr',
-            '3nPw...5jMs',
-            '8kLt...2vNp',
-            '6hRm...4wXs',
-            '4vQn...8yZp',
-            '2wXm...6tLq'
-        ];
-
-        let insuranceData = [];
-
-        // Load saved data
-        function loadSavedData() {
+        // Load saved fee from localStorage
+        function loadSavedFee() {
             const savedFee = localStorage.getItem(STORAGE_KEY);
             if (savedFee !== null) {
                 currentFee = parseFloat(savedFee);
             }
-            // If no saved fee, currentFee stays at 0.00
-
-            const savedTable = localStorage.getItem(TABLE_STORAGE_KEY);
-            if (savedTable !== null) {
-                insuranceData = JSON.parse(savedTable);
-            }
-            // If no saved table, insuranceData stays empty []
         }
 
-        // Save data
+        // Save fee to localStorage
         function saveFee() {
             localStorage.setItem(STORAGE_KEY, currentFee.toString());
-        }
-
-        function saveTableData() {
-            localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(insuranceData));
         }
 
         function formatCurrency(amount) {
             return `$${amount.toFixed(2)}`;
         }
 
-        function formatTokenAmount(amount) {
-            return `${amount.toFixed(2)} INS`;
-        }
-
-        function formatDateTime(date) {
-            const options = { 
-                month: 'short', 
-                day: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit'
-            };
-            return date.toLocaleDateString('en-US', options);
-        }
-
         function generateRandomIncrement() {
+            // Generate a random increment between $0.01 and $0.99
             return (Math.random() * 0.98 + 0.01);
         }
 
-        function generateRandomWallet() {
-            return sampleWallets[Math.floor(Math.random() * sampleWallets.length)];
-        }
-
-        function addNewInsuranceEntry() {
-            const newEntry = {
-                date: new Date(),
-                wallet: generateRandomWallet(),
-                lossAmount: (Math.random() * 45 + 5).toFixed(2),
-                supplyAmount: (Math.random() * 900 + 100).toFixed(2),
-                status: 'completed'
-            };
-
-            insuranceData.unshift(newEntry);
-            
-            // Keep only last 15 entries
-            if (insuranceData.length > 15) {
-                insuranceData.pop();
-            }
-
-            saveTableData();
-            renderTable();
-        }
-
-        function renderTable() {
-            tableBody.innerHTML = '';
-            
-            insuranceData.forEach(entry => {
-                const row = document.createElement('tr');
-                const statusClass = entry.status === 'completed' ? 'status-completed' : 'status-pending';
-                const statusText = entry.status === 'completed' ? 'Completed' : 'Pending';
-                
-                row.innerHTML = `
-                    <td>${formatDateTime(new Date(entry.date))}</td>
-                    <td><strong>${entry.wallet}</strong></td>
-                    <td>${formatCurrency(parseFloat(entry.lossAmount))}</td>
-                    <td>${formatTokenAmount(parseFloat(entry.supplyAmount))}</td>
-                    <td><span class="status-badge ${statusClass}">${statusText}</span></td>
-                `;
-                
-                tableBody.appendChild(row);
-            });
-        }
-
         function updateFee() {
+            // Add animation class
             feeElement.classList.add('updating');
             
+            // Update the fee after a brief moment
             setTimeout(() => {
                 const increment = generateRandomIncrement();
                 currentFee += increment;
                 feeElement.textContent = formatCurrency(currentFee);
+                
+                // Save to localStorage
                 saveFee();
                 
+                // Remove animation class
                 setTimeout(() => {
                     feeElement.classList.remove('updating');
                 }, 300);
             }, 150);
 
+            // Update the indicator
             updateIndicator.textContent = 'Just updated • Next update in 5s';
             setTimeout(() => {
                 updateIndicator.textContent = 'Updates every 5 seconds';
             }, 2000);
         }
 
-        // Initialize
-        loadSavedData();
-        feeElement.textContent = formatCurrency(currentFee);
-        renderTable();
+        // Load saved fee on page load
+        loadSavedFee();
 
-        // Update fee every 5 seconds
+        // Set initial display
+        feeElement.textContent = formatCurrency(currentFee);
+
+        // First update after 5 seconds
         setTimeout(() => {
             updateFee();
+            // Then continue updating every 5 seconds
             setInterval(updateFee, 5000);
         }, 5000);
 
-        // Add first insurance entry after 10 seconds
-        setTimeout(() => {
-            addNewInsuranceEntry();
-        }, 10000);
-
-        // Continue adding entries every 25-35 seconds indefinitely
+        // Countdown display (optional enhancement)
+        let countdown = 5;
         setInterval(() => {
-            addNewInsuranceEntry();
-        }, 30000); // Every 30 seconds (can vary with the random times in the function)
+            countdown--;
+            if (countdown <= 0) {
+                countdown = 5;
+            }
+        }, 1000);
     </script>
 </body>
 </html>

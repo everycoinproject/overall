@@ -3,765 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator Fees</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="dior.png">
+    <title>elon if he had no filter</title>
+    <link rel="icon" type="image/x-icon" href="burn.xyz">
     <style>
-        :root {
-            --white: #FFFFFF;
-            --off-white: #F8FAF9;
-            --light-gray: #E8EFEC;
-            --green-dark: #2A7A68;
-            --green-mid: #6EDBA3;
-            --green-light: #8FEABC;
-            --text-dark: #2A7A68;
-            --text-muted: #5A9A88;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--white);
-            min-height: 100vh;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        .page {
-            display: none;
-            position: relative;
-            min-height: 100vh;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ========== X BUTTON ========== */
-        .x-button {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            background: var(--white);
-            border: 2px solid var(--green-dark);
-            border-radius: 50px;
-            padding: 0.6rem 1.25rem;
-            color: var(--green-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.25s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #000;
+            color: #fff;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 100;
-        }
-
-        .x-button:hover {
-            background: var(--green-dark);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(42, 122, 104, 0.2);
-        }
-
-        .x-button svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* ========== HOME PAGE ========== */
-        .home-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 20px;
+        }
+        
+        .container {
             text-align: center;
+            max-width: 600px;
         }
-
+        
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             font-weight: 700;
-            color: var(--green-dark);
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
         }
-
-        .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: var(--text-muted);
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: #aaa;
         }
-
-        .highlight {
-            color: var(--green-dark);
-            font-weight: 600;
-        }
-
-        .button-group {
+        
+        .buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-            justify-content: center;
         }
-
-        .btn {
-            font-family: 'Outfit', sans-serif;
+        
+        button {
+            padding: 1rem 2rem;
             font-size: 1rem;
             font-weight: 600;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 2px solid var(--green-dark);
-        }
-
-        .btn-primary {
-            background: var(--green-dark);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--green-mid);
-            border-color: var(--green-mid);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(110, 219, 163, 0.3);
-        }
-
-        .btn-secondary {
+            border: 2px solid #fff;
             background: transparent;
-            color: var(--green-dark);
-        }
-
-        .btn-secondary:hover {
-            background: var(--green-dark);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* ========== INNER PAGE LAYOUT ========== */
-        .inner-page {
-            padding: 100px 20px 60px;
-        }
-
-        .back-btn {
-            position: fixed;
-            top: 24px;
-            left: 24px;
-            background: var(--white);
-            border: 2px solid var(--green-dark);
-            color: var(--green-dark);
-            padding: 0.6rem 1.25rem;
-            border-radius: 50px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: #fff;
             cursor: pointer;
-            transition: all 0.25s ease;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .back-btn:hover {
-            background: var(--green-dark);
-            color: var(--white);
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .page-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--green-dark);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .page-header p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* ========== CREATORS PAGE ========== */
-        .intro-card {
-            background: var(--green-dark);
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .intro-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .intro-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        .intro-card .stat {
-            display: inline-block;
-            background: var(--green-mid);
-            color: var(--green-dark);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            margin-top: 1.25rem;
-            font-weight: 600;
-        }
-
-        .creators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.25rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .creator-card {
-            background: var(--off-white);
-            border-radius: 16px;
-            padding: 1.75rem;
-            border: 2px solid transparent;
             transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .creator-card:hover {
-            border-color: var(--green-mid);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(42, 122, 104, 0.1);
-        }
-
-        .creator-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .creator-card h4 {
-            font-size: 1.25rem;
-            color: var(--green-dark);
-            margin-bottom: 0.25rem;
-            font-weight: 600;
-        }
-
-        .creator-name {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .creator-card p {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            line-height: 1.55;
-            margin-bottom: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            color: var(--green-mid);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: color 0.2s ease;
         }
-
-        .social-link:hover {
-            color: var(--green-dark);
-        }
-
-        .social-link svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* ========== FEES PAGE ========== */
-        .fees-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .fee-circle-container {
-            position: relative;
-            width: 260px;
-            height: 260px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .fee-circle {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 
-                0 0 0 6px var(--green-dark),
-                0 0 0 12px var(--green-mid);
-            position: relative;
-        }
-
-        .fee-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-        }
-
-        .fee-amount {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--green-dark);
-            transition: all 0.3s ease;
-        }
-
-        .fee-amount.updating {
-            transform: scale(1.05);
-            color: var(--green-mid);
-        }
-
-        .update-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--off-white);
-            padding: 0.6rem 1.25rem;
-            border-radius: 50px;
-            color: var(--green-dark);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 2.5rem;
-        }
-
-        .update-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: var(--green-mid);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.3); }
-        }
-
-        .fee-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .breakdown-card {
-            background: var(--off-white);
-            padding: 1.75rem;
-            border-radius: 16px;
-            text-align: left;
-            border: 2px solid transparent;
-            transition: all 0.25s ease;
-        }
-
-        .breakdown-card:hover {
-            border-color: var(--green-mid);
-            transform: translateY(-3px);
-        }
-
-        .breakdown-card .icon {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .breakdown-card h4 {
-            font-size: 1.1rem;
-            color: var(--green-dark);
-            margin-bottom: 0.35rem;
-            font-weight: 600;
-        }
-
-        .breakdown-card .percentage {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--green-mid);
-            margin-bottom: 0.5rem;
-        }
-
-        .breakdown-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .x-button {
-                top: 16px;
-                right: 16px;
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .x-button svg {
-                width: 16px;
-                height: 16px;
-            }
-
-            .creators-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .back-btn {
-                top: 16px;
-                left: 16px;
-                padding: 0.5rem 1rem;
-            }
-
-            .inner-page {
-                padding: 80px 16px 40px;
-            }
-
-            .intro-card {
-                padding: 1.75rem;
-            }
-
-            .fee-circle-container {
-                width: 220px;
-                height: 220px;
-            }
-
-            .fee-amount {
-                font-size: 2.25rem;
-            }
+        
+        button:hover {
+            background: #fff;
+            color: #000;
         }
     </style>
 </head>
 <body>
-    <!-- X BUTTON -->
-    <a href="https://x.com/Creator_Fees" target="_blank" rel="noopener noreferrer" class="x-button">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        Follow
-    </a>
-
-    <!-- HOME PAGE -->
-    <div class="page active" id="home">
-        <div class="home-page">
-            <h1>Creator Fees</h1>
-            
-            <p class="subtitle">
-                We airdrop <span class="highlight">10% of fees</span> directly to each of the biggest meme creators on Solana.
-            </p>
-            
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="showPage('creators')">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                    Creators
-                </button>
-                <button class="btn btn-secondary" onclick="showPage('fees')">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <line x1="12" y1="1" x2="12" y2="23"/>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                    </svg>
-                    Fees Sent
-                </button>
-            </div>
+    <div class="container">
+        <h1>elon if he had no filter</h1>
+        <p>
+            we made an ai which has learnt everything about elon musk and processed his last 1000 tweets<br><br>
+            we then took away all his filters
+        </p>
+        <div class="buttons">
+            <button onclick="window.open('https://github.com/appl-team/TwitterPersonality', '_blank')">github</button>
+            <button onclick="window.open('https://x.com/elonwith0filter', '_blank')">meet him</button>
         </div>
     </div>
-
-    <!-- CREATORS PAGE -->
-    <div class="page" id="creators">
-        <div class="inner-page">
-            <button class="back-btn" onclick="showPage('home')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                Back
-            </button>
-
-            <div class="page-header">
-                <h2>The Creators</h2>
-                <p>The legendary artists behind the internet's most iconic memes — receiving airdrops from our fee pool.</p>
-            </div>
-
-            <div class="intro-card">
-                <h3>Why We Do This</h3>
-                <p>Meme culture drives crypto, yet original creators rarely benefit. We're changing that by sending 10% of all fees directly to the people who created the memes we know and love.</p>
-                <span class="stat">💚 10% of Fees → Each Creator</span>
-            </div>
-
-            <div class="creators-grid">
-                <div class="creator-card">
-                    <span class="creator-emoji">🌈</span>
-                    <h4>Nyan Cat</h4>
-                    <div class="creator-name">Created by Chris Torres</div>
-                    <p>The iconic 8-bit cat with a Pop-Tart body flying through space, leaving a rainbow trail.</p>
-                    <a href="https://x.com/PRguitarman" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @PRguitarman
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">🐸</span>
-                    <h4>Pepe the Frog</h4>
-                    <div class="creator-name">Created by Matt Furie</div>
-                    <p>Originally from "Boy's Club," Pepe became one of the internet's most versatile meme characters.</p>
-                    <a href="https://x.com/Matt_Furie" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @Matt_Furie
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">🐕</span>
-                    <h4>Doge (Kabosu)</h4>
-                    <div class="creator-name">Owner: Atsuko Sato</div>
-                    <p>The Shiba Inu that launched a thousand coins. Kabosu's expression became the face of "much wow."</p>
-                    <a href="https://x.com/AtsukoSato_" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @AtsukoSato_
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">👶</span>
-                    <h4>Success Kid</h4>
-                    <div class="creator-name">Sammy Griner / Mom: Laney Griner</div>
-                    <p>The determined toddler became the universal symbol of small victories and triumphant moments.</p>
-                    <a href="https://x.com/laneymg" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @laneymg
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">😬</span>
-                    <h4>Bad Luck Brian</h4>
-                    <div class="creator-name">Kyle Craven</div>
-                    <p>The yearbook photo synonymous with comically unfortunate situations. Kyle embraced his fame.</p>
-                    <a href="https://x.com/solidbadluck" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @solidbadluck
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">😾</span>
-                    <h4>Grumpy Cat</h4>
-                    <div class="creator-name">Owner: Tabatha Bundesen</div>
-                    <p>Tardar Sauce's permanently grumpy expression captured hearts worldwide. Her legacy lives on.</p>
-                    <a href="https://x.com/RealGrumpyCat" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @RealGrumpyCat
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">🎹</span>
-                    <h4>Keyboard Cat</h4>
-                    <div class="creator-name">Created by Charlie Schmidt</div>
-                    <p>The original "play him off" cat. Fatso's keyboard performance became perfect exit music.</p>
-                    <a href="https://www.youtube.com/@CharlieSFK" target="_blank" class="social-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        YouTube
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">🕺</span>
-                    <h4>Rickroll</h4>
-                    <div class="creator-name">Rick Astley</div>
-                    <p>"Never Gonna Give You Up" became the internet's favorite bait-and-switch prank.</p>
-                    <a href="https://x.com/rickastley" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @rickastley
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">👀</span>
-                    <h4>Distracted Boyfriend</h4>
-                    <div class="creator-name">Photo by Antonio Guillem</div>
-                    <p>A stock photo that became the perfect template for depicting temptation and life's distractions.</p>
-                    <a href="https://www.antonioguillem.com/" target="_blank" class="social-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        Portfolio
-                    </a>
-                </div>
-
-                <div class="creator-card">
-                    <span class="creator-emoji">😤🐱</span>
-                    <h4>Woman Yelling at Cat</h4>
-                    <div class="creator-name">Taylor Armstrong + Smudge</div>
-                    <p>The mashup of Taylor's emotional moment with Smudge the cat created the perfect debate meme.</p>
-                    <a href="https://x.com/TaylorArmstrong" target="_blank" class="social-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        @TaylorArmstrong
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FEES PAGE -->
-    <div class="page" id="fees">
-        <div class="inner-page">
-            <button class="back-btn" onclick="showPage('home')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                Back
-            </button>
-
-            <div class="page-header">
-                <h2>Fees Sent</h2>
-                <p>Track real-time accumulation of creator fees. This pool grows with every transaction.</p>
-            </div>
-
-            <div class="fees-container">
-                <div class="fee-circle-container">
-                    <div class="fee-circle">
-                        <div class="fee-label">Total Collected</div>
-                        <div class="fee-amount" id="feeAmount">$0.00</div>
-                    </div>
-                </div>
-
-                <div class="update-badge">
-                    <span class="dot"></span>
-                    <span id="updateIndicator">Updates every 5 seconds</span>
-                </div>
-
-                <div class="fee-breakdown">
-                    <div class="breakdown-card">
-                        <div class="icon">🎨</div>
-                        <h4>Creator Airdrops</h4>
-                        <div class="percentage">90%</div>
-                        <p>The majority of fees go directly to verified meme creators who shaped internet culture.</p>
-                    </div>
-
-                    <div class="breakdown-card">
-                        <div class="icon">⚙️</div>
-                        <h4>Platform Operations</h4>
-                        <div class="percentage">10%</div>
-                        <p>A small portion supports platform maintenance and development.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Page Navigation
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        // Fee Counter Logic
-        const STORAGE_KEY = 'creator_fees_amount';
-        let currentFee = 0.00;
-        const feeElement = document.getElementById('feeAmount');
-        const updateIndicator = document.getElementById('updateIndicator');
-
-        function loadSavedFee() {
-            const savedFee = localStorage.getItem(STORAGE_KEY);
-            if (savedFee !== null) {
-                currentFee = parseFloat(savedFee);
-            }
-        }
-
-        function saveFee() {
-            localStorage.setItem(STORAGE_KEY, currentFee.toString());
-        }
-
-        function formatCurrency(amount) {
-            return `$${amount.toFixed(2)}`;
-        }
-
-        function generateRandomIncrement() {
-            return (Math.random() * 0.98 + 0.01);
-        }
-
-        function updateFee() {
-            feeElement.classList.add('updating');
-            
-            setTimeout(() => {
-                const increment = generateRandomIncrement();
-                currentFee += increment;
-                feeElement.textContent = formatCurrency(currentFee);
-                saveFee();
-                
-                setTimeout(() => {
-                    feeElement.classList.remove('updating');
-                }, 300);
-            }, 150);
-
-            updateIndicator.textContent = 'Just updated • Next in 5s';
-            setTimeout(() => {
-                updateIndicator.textContent = 'Updates every 5 seconds';
-            }, 2000);
-        }
-
-        // Initialize
-        loadSavedFee();
-        feeElement.textContent = formatCurrency(currentFee);
-
-        setTimeout(() => {
-            updateFee();
-            setInterval(updateFee, 5000);
-        }, 5000);
-    </script>
 </body>
 </html>
